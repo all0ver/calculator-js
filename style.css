@@ -1,5 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Courier Prime';
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-family: monospace;
+    background-color: #31363F;
+}
+
+.main {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #222831;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+}
+
+.display {
+    background: #4E4E4E;
+    margin: 0.5rem;
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.display-p {
+
+    color: #E3FCF9;
+    font-size: 40px
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    gap: 0.25rem;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+.controls {
+    flex: 1 1 25%;
+    padding: 1rem;
+    font-weight: bold;
+    background-color: #76ABAE;
+    border: none;
+    border-radius: 5px;
+}
+
+.equal {
+    flex-basis: 57%;
+}
+
+.calculator{
+    flex: 1;
+}
+
+footer {
+    flex-grow: 0;
+    flex-grow: 0;
+    justify-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+img {
+    height: 20px;
+    width: 20px;
 }
