@@ -21,7 +21,11 @@ function operate(firstNum, secondNum, operator) {
             return (firstNum-secondNum);
             break;
         case "/":
-            return (firstNum/secondNum);
+            if (secondNum == 0) {
+                display.innerHTML = "You can't do this";
+            } else {
+                return (firstNum/secondNum);
+            }
             break;
         case "x":
             return (firstNum*secondNum);
@@ -65,8 +69,8 @@ equal.addEventListener('click', ()=> {
     (firstNumber == undefined) ? firstNumber = parseFloat(amount) : secondNumber = parseFloat(amount);
     amount = "";
     result = operate(firstNumber, secondNumber, operation);
-    if (!(result % 1 == 0)) {
-        result = result.toFixed(2);
+    if (!(result % 0.01 == 0 || result % 0.1 == 0)) {
+        result = result.toFixed(3);
     }
     display.innerHTML = result;
     firstNumber = result;
