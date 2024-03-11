@@ -2,7 +2,8 @@ const numbers = document.querySelectorAll('.num');
 const display = document.querySelector('.display-p');
 const actions = document.querySelectorAll('.action');
 const equal = document.querySelector('.equal');
-// const 
+const del = document.querySelector('.del');
+const ac = document.querySelector('.ac');
 
 let firstNumber;
 let secondNumber;
@@ -49,7 +50,7 @@ numbers.forEach(number => {
 
 actions.forEach(action => {
     action.addEventListener('click', ()=> {
-        (firstNumber == undefined) ? firstNumber = parseInt(amount) : secondNumber = parseInt(amount);
+        (firstNumber == undefined || firstNumber == NaN) ? firstNumber = parseInt(amount) : secondNumber = parseInt(amount);
         operation = action.value;
         console.log("firstNumber = "+firstNumber+", second number = "+secondNumber);
         amount = 0;
@@ -61,8 +62,24 @@ equal.addEventListener('click', ()=> {
     console.log("firstNumber = "+firstNumber+", second number = "+secondNumber);
     amount = 0;
     result = operate(firstNumber, secondNumber, operation);
-    result = result.toFixed(3);
+    if (!(result % 1 == 0)) {
+        result = result.toFixed(3);
+    }
     display.innerHTML = result;
     firstNumber = result;
 })
 
+del.addEventListener('click', ()=> {
+    if (amount.length > 1) {
+        amount = amount.slice(0, -1);
+        display.innerHTML = amount;
+    } else {
+        amount = 0;
+        display.innerHTML = amount;
+    }
+})
+
+ac.addEventListener('click', ()=> {
+    amount = 0;
+    display.innerHTML = amount;
+})
