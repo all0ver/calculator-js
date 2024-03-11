@@ -102,3 +102,4 @@ prctg.addEventListener('click', ()=> {
     amount = amount/100;
     display.innerHTML = amount;
 })
+

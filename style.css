@@ -100,3 +100,7 @@ img {
     height: 20px;
     width: 20px;
 }
+
+button:active {
+    background-color: rgb(189, 65, 65);
+}
