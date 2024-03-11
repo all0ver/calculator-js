@@ -5,6 +5,7 @@ const equal = document.querySelector('.equal');
 const del = document.querySelector('.del');
 const ac = document.querySelector('.ac');
 const decimal = document.querySelector('.decimal');
+const prctg = document.querySelector('.prctg');
 
 let firstNumber;
 let secondNumber;
@@ -37,7 +38,10 @@ numbers.forEach(number => {
     number.addEventListener('click', ()=> {
         if (amount.length >= 10) {
             alert('więcej nie można');
-        } else if (amount === 0) {
+        } else if (amount == "0.") {
+            amount += number.value;
+            display.innerHTML = amount;
+        } else if (amount == 0) {
             amount = number.value;
             display.innerHTML = amount;
         } else {
@@ -53,20 +57,16 @@ actions.forEach(action => {
     action.addEventListener('click', ()=> {
         (firstNumber == undefined || firstNumber == NaN) ? firstNumber = parseFloat(amount) : secondNumber = parseFloat(amount);
         operation = action.value;
-        console.log("firstNumber = "+firstNumber+", second number = "+secondNumber);
-        amount = 0;
+        amount = "";
     })
 })
 let result = 0;
 equal.addEventListener('click', ()=> {
     (firstNumber == undefined) ? firstNumber = parseFloat(amount) : secondNumber = parseFloat(amount);
-    console.log("firstNumber = "+firstNumber+", second number = "+secondNumber);
-    amount = 0;
+    amount = "";
     result = operate(firstNumber, secondNumber, operation);
     if (!(result % 1 == 0)) {
-        result = result.toFixed(3);
-    } else {
-        // result = parseInt(result);
+        result = result.toFixed(2);
     }
     display.innerHTML = result;
     firstNumber = result;
@@ -77,7 +77,7 @@ del.addEventListener('click', ()=> {
         amount = amount.slice(0, -1);
         display.innerHTML = amount;
     } else {
-        amount = 0;
+        amount = "0";
         display.innerHTML = amount;
     }
 })
@@ -85,12 +85,16 @@ del.addEventListener('click', ()=> {
 ac.addEventListener('click', ()=> {
     firstNumber = undefined;
     secondNumber = undefined;
-    amount = 0;
+    amount = "0";
     display.innerHTML = amount;
 })
 
 decimal.addEventListener('click',()=> {
     amount+=".";
-    console.log(amount);
+    display.innerHTML = amount;
+})
+
+prctg.addEventListener('click', ()=> {
+    amount = amount/100;
     display.innerHTML = amount;
 })
