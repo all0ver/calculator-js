@@ -22,7 +22,7 @@ function operate(firstNum, secondNum, operator) {
             break;
         case "/":
             if (secondNum == 0) {
-                display.innerHTML = "You can't do this";
+                display.innerHTML = "Error";
             } else {
                 return (firstNum/secondNum);
             }

@@ -47,7 +47,7 @@ body {
 }
 
 .display-p {
-
+    margin: 0.25rem;
     color: #E3FCF9;
     font-size: 40px
 }
