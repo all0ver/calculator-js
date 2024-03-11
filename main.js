@@ -94,8 +94,10 @@ ac.addEventListener('click', ()=> {
 })
 
 decimal.addEventListener('click',()=> {
-    amount+=".";
-    display.innerHTML = amount;
+    if (!amount.includes(".")) {
+        amount+=".";
+        display.innerHTML = amount;
+    }
 })
 
 prctg.addEventListener('click', ()=> {
